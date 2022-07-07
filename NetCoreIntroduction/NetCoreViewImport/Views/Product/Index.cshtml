@@ -1,0 +1,14 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form method="post" post-action="Index" asp-controller="FakeProduct">
+    <div>
+        <label asp-for="ProductName"></label>
+        <input type="text" asp-for="ProductName" />
+    </div>
+    <button>Add Product</button>
+</form>
+

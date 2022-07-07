@@ -1,0 +1,125 @@
+﻿
+INTRODUCTION
+
+1- Core Empty application project acildi. .net 5 secildi.
+
+2- Controllers klasoru ve icerisine HomeController acildi.
+
+3- Startup icerisine useEndpoints yazildi ve hazir olan kisim yorum satirina alindi:
+
+app.UseEndpoints(x =>
+            {
+                x.MapDefaultControllerRoute();  -> burasi home/index/id'yi temsil ediyor.
+            });
+
+4- Sonra ConfigureServices altina asagidaki kisim yazildi:
+
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+5- Views klasoru ve icine home klasoru acildi. HomeController icerisindeki IActionResult Index icin Razor-Empty view olusturuldu.
+
+
+CUSTOM ROUTE
+
+1- Core Empty application project acildi. .net 5 secildi.
+
+2- Controllers klasoru ve icerisine Home, Product ve Category Controller acildi.
+
+3- Views klasoru ve icine home klasoru acildi. HomeController icerisindeki IActionResult Index icin Razor-Empty view olusturuldu. Product ve Category icin empty olmayan razor view'lar olusturuldu.
+
+4- Startup.cs icerisi su sekilde degistirildi:
+
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+             veya services.AddMvc(); de yazilabilir.
+        }
+
+app.UseEndpoints(x =>
+            {
+                x.MapControllerRoute(
+                    name: "default_route",
+                    pattern: "{Controller=Home}/{Action=Index}/{id?}"
+                    );
+            });
+
+5- Models klasoru acildi.
+
+**Ne kadar Custom Route tanimlanirsa tanimlansin, default_route her zaman en altta olmalidir.
+
+--url degistirmek icin Startup icerisinde degisim yapildi.
+
+
+STATIC FILES 
+
+1- Core Empty application project acildi. .net 5 secildi.
+
+2- Controllers klasoru ve icerisine HomeController acildi.
+
+3- Startup icerisine useEndpoints yazildi ve hazir olan kisim yorum satirina alindi:
+
+app.UseEndpoints(x =>
+            {
+                x.MapDefaultControllerRoute();  -> burasi home/index/id'yi temsil ediyor.
+            });
+
+4- Sonra ConfigureServices altina asagidaki kisim yazildi:
+
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+5- Views klasoru ve icine home klasoru acildi. HomeController icerisindeki IActionResult Index icin Razor-Empty view olusturuldu.
+
+6- wwwroot adinda bir klasor olusturuldu. Olusturuldugu anda dosyanin ikonu degisti. Icine css, images ve js dosyalari olusturuldu. 
+
+7- Startup icerisine " app.UseStaticFiles();" yazildi.
+
+*** extentions - html snipped pack indirildi.(yardimci olmasi icin)
+
+8- bootstrap, jquery kutuphanelerini indirmek icin projeye sag tik- manage client side libraries kullanilir. Libman.json adinda bir sayfa aciliyor. Artik yapilandirma islemleri bu alandan yapilacak. libraries icerisine en guncel kutuphaneler yazilir.
+
+Bu sekilde wwwroot icerisine kutuphaneler indirildi.
+
+
+VIEW IMPORT
+
+
+1- Core Empty application project acildi. .net 5 secildi.
+
+2- Controllers klasoru ve icerisine HomeController acildi.
+
+3- Startup icerisine useEndpoints yazildi ve hazir olan kisim yorum satirina alindi:
+
+app.UseEndpoints(x =>
+            {
+                x.MapControllerRoute(
+                    name: "default_route",
+                    pattern: "{Controller=Product}/{Action=Index}/{id?}"
+                    );
+            });
+
+
+4- Sonra ConfigureServices altina asagidaki kisim yazildi:
+
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+5- Startup icerisine " app.UseStaticFiles();" yazildi.
+
+6- Models klasoru acilip icerisine Product class'i acildi.
+
+7- Controllers klasoru ve icerisine ProductController acildi.
+
+8- Views klasoru acildi. add item - razor viewimports secildi. Icerisine @using ve @addTagHelpers yazildi.
+
+9- Index sayfasinda su yazilir:
+
+<label asp-for="ProductName"></label>
+ <input type="text" asp-for="ProductName" /> (bu islem bize taghelper vasitasiyla yardimci oluyor.)

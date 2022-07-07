@@ -1,0 +1,12 @@
+﻿@model List<NetCoreCustomRoute.Models.Product>
+
+<h2>Product/Index</h2>
+
+<div class="col-md-4">
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>@product.ID - @product.ProductName - @product.UnitPrice</li>
+        }
+    </ul>
+</div>

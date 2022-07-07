@@ -1,0 +1,21 @@
+﻿1- Models klasoru ve tablolar icin class'lar olusturuldu.
+
+2- Context klasoru ve DbSet'ler olusturuldu.
+
+EntityFrameworkCore
+EntityFrameworkCore.Tools
+EntityFrameworkCore.Design
+EntityFrameworkCore.SqlServer
+EntityFrameworkCore.Entity kurulumlari yapildi.
+***5.0.3 kurulumu yapilir cunku .net 5.0 ile latest version'lar uyumlu degil.
+
+3- startup icerisine:
+services.AddDbContext<ApplicationDbContext>(x=> x.UseSqlServer("server=localhost\\SQLEXPRESS;database=NetCoreDB;Trusted_Connection=true"));
+
+4- migrations islemi icin console'a add-migration migrationAdi girildi.
+Up: Table'larin olustugu yer
+
+5- update-database yapildi.
+
+FakeCategoryService olusturma sebebimiz: Canliya gecmeden once yapilacak islemleri burada test edebiliriz.
+

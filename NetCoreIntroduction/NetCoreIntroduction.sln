@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreIntroduction", "NetCoreIntroduction\NetCoreIntroduction.csproj", "{757DB977-3E0C-4E6C-80DB-52B3FA400700}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Introduction", "1- Introduction", "{2EDD4EB6-E70A-43CC-9B90-C1537B01013B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- CustomRoute", "2- CustomRoute", "{F3E4121C-CB23-48D2-9777-875509EF3A25}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreCustomRoute", "NetCoreCustomRoute\NetCoreCustomRoute.csproj", "{61DB2B50-A6CC-4220-9CC5-CB91C8681FDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{F4AF7951-60C5-49B1-A2E7-A5A70EFDDF07}"
+	ProjectSection(SolutionItems) = preProject
+		NetCoreIntroduction\TextFile.txt = NetCoreIntroduction\TextFile.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- StaticFiles", "3- StaticFiles", "{422F559F-E34B-4EB0-9A11-672B6488D94C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreStaticFiles", "NetCoreStaticFiles\NetCoreStaticFiles.csproj", "{71275971-D1F5-4F1C-8C3F-C1F3687EC64F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- ViewImport", "4- ViewImport", "{FBFA5C0A-3023-4EC7-BC0C-48DE0F1222C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreViewImport", "NetCoreViewImport\NetCoreViewImport.csproj", "{47DBA1AD-E412-4FA7-9731-DA1C1FBDA4CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757DB977-3E0C-4E6C-80DB-52B3FA400700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757DB977-3E0C-4E6C-80DB-52B3FA400700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757DB977-3E0C-4E6C-80DB-52B3FA400700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757DB977-3E0C-4E6C-80DB-52B3FA400700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61DB2B50-A6CC-4220-9CC5-CB91C8681FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DB2B50-A6CC-4220-9CC5-CB91C8681FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DB2B50-A6CC-4220-9CC5-CB91C8681FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DB2B50-A6CC-4220-9CC5-CB91C8681FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71275971-D1F5-4F1C-8C3F-C1F3687EC64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71275971-D1F5-4F1C-8C3F-C1F3687EC64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71275971-D1F5-4F1C-8C3F-C1F3687EC64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71275971-D1F5-4F1C-8C3F-C1F3687EC64F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47DBA1AD-E412-4FA7-9731-DA1C1FBDA4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47DBA1AD-E412-4FA7-9731-DA1C1FBDA4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47DBA1AD-E412-4FA7-9731-DA1C1FBDA4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47DBA1AD-E412-4FA7-9731-DA1C1FBDA4CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{757DB977-3E0C-4E6C-80DB-52B3FA400700} = {2EDD4EB6-E70A-43CC-9B90-C1537B01013B}
+		{61DB2B50-A6CC-4220-9CC5-CB91C8681FDC} = {F3E4121C-CB23-48D2-9777-875509EF3A25}
+		{71275971-D1F5-4F1C-8C3F-C1F3687EC64F} = {422F559F-E34B-4EB0-9A11-672B6488D94C}
+		{47DBA1AD-E412-4FA7-9731-DA1C1FBDA4CB} = {FBFA5C0A-3023-4EC7-BC0C-48DE0F1222C2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {787DA82C-603B-46FC-B791-1E7A2D197607}
+	EndGlobalSection
+EndGlobal

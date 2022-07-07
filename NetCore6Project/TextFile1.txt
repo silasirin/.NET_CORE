@@ -1,0 +1,50 @@
+
+NET CORE 6 E COMMERCE PROJESI
+
+1- Blank solution acildi
+
+2- Web adinda ASP.NET Core Web App (Model-View-Controller) projesi acildi.
+
+3- .net 6 ve Individual Accounts secildi
+
+
+* PostgreSQL neden kullanilir?
+MSSQL Microsoft'a aittir. Bu nedenle farkli isletim sistemlerinde kullanabilmek icin, acik kaynak kodlu bir veritabani sistemi kullanilmasi gerekir. Bunlardan bazilari mysql,mongoDb,PostGre'dir. Bu yuzden bu projede Postgre kullanacagiz. Terminal uzerinde de sorgulamaya izin verir. Icerisinde kullanilan sorgular daha once gordugumuz T-SQL sorgularina oldukca benzerdir.
+
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads sitesinden PostGre Version 14.3 indirilir.
+
+Postgre varsayilan kullanici bilgileri:
+kullanici adi: postgres
+sifre: 123
+
+WEB KATMANI
+
+1- Appsettings.json
+
+2-Nuget'tan indirilecek olanlar:
+NpgSglEntityFrameworkCore
+EntityFrameworkCore.Design
+hepsi 6.04 olarak indirildi ki ayni surum olsun
+
+3- Node kurulumu: 
+
+https://nodejs.org/en/download/
+
+projeye sag tik open in terminal
+
+npm install bootstrap (veya npm i bootstrap)
+
+1- Models icerisine entity onun icine base class'i olusturuldu. burada IEntity adinda bir interface olusturuldu.
+
+2- Core Entity class'i acildi. IEntity'den miras aldi. Icerisinde property'ler tanimlandi. Icerisine ctor acildi. CreateDate ve IP tanimlandi.
+
+3- Models icerisine enum klasoru olusturuldu. Status adinda bir enum acildi. Core'daki ctor'a status.active eklendi.
+
+
+DAL KATMANI
+
+1- Class Library(parantez ici yok) olarak DAL katmani acildi. Models klasoru buraya tasindi.
+
+BLL KATMANI
+
+1- Class Library(parantez ici yok) olarak BLL katmani acildi.

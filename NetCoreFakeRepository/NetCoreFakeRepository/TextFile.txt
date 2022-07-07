@@ -1,0 +1,63 @@
+﻿1- asp .net core empty proje acildi.
+
+2- Start Up icerisi degistirildi:
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+app.UseEndpoints(x =>
+            {
+                x.MapControllerRoute(name: "default", pattern: "{Controller=Home}/{Action=Index}/{id?}");
+            });
+
+3- Controllers, Models ve Views klasorleri acildi. HomeController olusturuldu.
+
+4- Views icerisine shared klasoru, onun icerisine _Layout adinda bir razor view olusturuldu.
+
+5- wwwroot klasoru acildi.
+
+6- Projeye sag tik - manage client-side libraries secilip libman icerisine asagidaki kisim yazildi:
+"libraries": [
+    {
+      "library": "twitter-bootstrap@5.1.3",
+      "destination": "wwwroot/lib/css/bootstrap"
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/lib/js/jquery"
+    }
+  ]
+
+7- Startup icerisine app.UseStaticFiles(); yazildi. Bunun sebebi jquery ve bootstrap dosyalarinin okunabilmesini saglamaktir.
+
+8- Models icerisine Data klasoru, onun da icine EmployeeData class'i acildi. Icerisinde EmployeeList olusturuldu. Models icerisine Employee class'i olusuturulup Property'ler tanimlandi.
+
+**Controller tarafinda tanimlanmayan Partial'lar Shared klasoru icerisinde tanimlanir.
+
+9- EmployeeController olusturuldu. Index'i acildi.
+
+10- View klasoru icerisine Razor view import acildi. Icerisine asagidaki kodlar yazildi:
+
+@using NetCoreFakeRepository.Models
+
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+11- Models icerisine BaseRepository klasoru olusturuldu. IEmployeeRepository class'i acildi.
+
+**Bunun amaci birden fazla database oldugunda, verileri cekerken isimizin kolaylasmasi. (Dependency Injection yapiyoruz.)
+
+12- Startup icerisine gelindi.
+
+-AddScoped: Bir kez instance al. Verileri aldigin instance uzerinden bize getir.
+
+-AddSingleton: Alinan bir instance var mi, kontrol et
+
+-AddTransient: Her istekte yalnizca bir kez instance al. (bu projede bunu kullaniyoruz.)
+
+**Yalnizca startup icerisinde bulunan EmployeeData kismi yerine diger database'lerden herhangi biri yazilarak, baska hicbir degisiklige gerek duyulmadan farkli kaynaklardan farkli verileri, uygulama calisirken degistirebilme olanagina sahip oluyoruz. Bu durum da dependency injection'dir. (SOLID)
+
+services.AddTransient<IEmployeeRepository, EmployeeData>(); //Ilk parametre interface, ikinci parametre concrete -> buradaki ikinci parametreyi degistiriyoruz.
+
+**Bir proje calistiginda ilk istek Service'e gider. Service icerisine services.AddControllersWithViews(); yazdigimiz icin bu bir MVC projesidir demis oluyoruz. Boylece ilk olarak Controller icerisinde constructor tetiklenmis olur.
+

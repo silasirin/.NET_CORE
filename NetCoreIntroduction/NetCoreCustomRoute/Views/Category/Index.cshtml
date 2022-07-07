@@ -1,0 +1,19 @@
+﻿@using NetCoreCustomRoute.Models;
+@model List<Category>
+
+<h2>Category/Index</h2>
+
+<div class="col-md-4">
+    <ul>
+        @foreach (var category in Model)
+        {
+            @* <li>@category.ID - @category.CategoryName </li>*@
+            @*<li>
+        @Html.ActionLink(category.CategoryName,"GetoProducts","Product",new {categoryId = category.ID})
+        </li>*@
+            <li>
+                @Html.RouteLink(category.CategoryName,"ProductsRoute", new{CategoryName=category.CategoryName,categoryId = category.ID})
+            </li>
+        }
+    </ul>
+</div>

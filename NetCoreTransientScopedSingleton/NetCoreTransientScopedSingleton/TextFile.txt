@@ -1,0 +1,53 @@
+﻿TRANSIENT & SCOPED & SINGLETON
+
+1- asp .net core empty proje acildi.
+
+2- Start Up icerisi degistirildi:
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+app.UseEndpoints(x =>
+            {
+                x.MapControllerRoute(name: "default", pattern: "{Controller=Home}/{Action=Index}/{id?}");
+            });
+
+3- Controllers, Models ve Views klasorleri acildi. HomeController olusturuldu.
+
+4- Views icerisine shared klasoru, onun icerisine _Layout adinda bir razor view olusturuldu.
+
+5- wwwroot klasoru acildi.
+
+6- Projeye sag tik - manage client-side libraries secilip libman icerisine asagidaki kisim yazildi:
+"libraries": [
+    {
+      "library": "twitter-bootstrap@5.1.3",
+      "destination": "wwwroot/lib/css/bootstrap"
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/lib/js/jquery"
+    }
+  ]
+
+7- Startup icerisine app.UseStaticFiles(); yazildi. Bunun sebebi jquery ve bootstrap dosyalarinin okunabilmesini saglamaktir.
+**Bu islem wwwroot klasorune sag tiklayip Client-Side Library denilir.
+
+**Disardan yapilan isteklerde sabit dosyalarimiza ulasmamizi sagladigi icin wwwroot klasorunu kullaniyoruz. 
+
+8- Models icerisine ITransient class'i acildi. Guid tipinde method tanimlandi. Boylece her alinan instance icin bize guid tipinde benzersiz ID olusturur. Ayni sekilde ISingleton ve IScooped class'lari da acilacak.
+
+9- Transient, Singleton ve Scoped'u icerisinde tanimlayabilmek icin Models icerisine OperationService adinda bir class olusturuldu. Tum Interface'lerden kalitim alacak. 
+Icerisine constructor olusturuldu. Boylece her tetiklendiginde Guid tipinde bir id olusturacak.
+
+10- Startup icerisine:
+services.AddTransient<ITransient, OperationService>();
+services.AddSingleton<ISingleton,OperationService>();
+services.AddScoped<IScoped, OperationService>();
+
+11- HomeController icerisinde her bir service icin 2'ser kez instance alinir ve olusturduklari instance id'leri kontrol edilir.(index sayfasinda)
+
+12- Transient: Her defasinda yeni bir instance olusturur.
+Scope: ornegi ram uzerine bir kez alir. Daha once instance alinip alinmadigini kontrol etmez.
+Singleton: Eger ornek yoksa yeni bir tane olusturur. (scope ile farki budur)
